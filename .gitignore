@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+# Se genera al ejecutar el notebook
+data/processed/

@@ -1,0 +1,5 @@
+segmento,clientes,% clientes,límite mediano (NT$),utilización media (%),ratio de pago mediano (%),meses con atraso (prom.),"atraso máximo (prom., meses)","variación mensual de deuda (mediana, %)",edad media,% impago,% de la deuda total,% de todos los impagos
+1,11296,38.2,110000.0,55.8,5.1,0.0,0.0,0.1,35.2,11.4,66.5,19.5
+2,9830,33.2,220000.0,4.6,87.9,0.3,0.3,-2.3,36.2,13.9,6.7,20.7
+3,1355,4.6,200000.0,1.2,100.0,0.7,0.6,0.0,36.7,34.5,0.5,7.1
+4,7085,24.0,60000.0,60.2,5.0,3.0,2.3,-1.1,34.7,49.1,26.3,52.7
