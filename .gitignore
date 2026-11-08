@@ -4,3 +4,5 @@ __pycache__/
 .DS_Store
 # Se genera al ejecutar el notebook
 data/processed/
+# Documentos Word de trabajo (no se publican)
+*.docx
