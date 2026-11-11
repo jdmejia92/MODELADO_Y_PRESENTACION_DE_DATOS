@@ -1,5 +1,7 @@
 # Segmentación de clientes de tarjeta de crédito
 
+Enlace del video de la Evaluación Continua 1: https://drive.google.com/file/d/1aVl0rN_8GOYmzLWXrxGmASWUc1pc6xeD/view?usp=share_link
+
 Avance 1 del curso **Modelado y Presentación de Datos** (Zegel). Análisis exploratorio, limpieza y modelado no supervisado (**clustering con K-Means**) para segmentar a 30 000 clientes de tarjeta de crédito según su comportamiento de pago.
 
 **Integrantes:**
