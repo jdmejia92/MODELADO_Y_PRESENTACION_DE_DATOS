@@ -8,3 +8,4 @@ seaborn==0.13.2
 notebook==7.6.5
 ipykernel==7.4.0
 nbconvert==7.17.2
+requests==2.34.2

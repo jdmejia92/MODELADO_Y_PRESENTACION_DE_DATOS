@@ -2,6 +2,8 @@
 __pycache__/
 .ipynb_checkpoints/
 .DS_Store
+# Se descarga al ejecutar el notebook
+data/raw/
 # Se genera al ejecutar el notebook
 data/processed/
 # Documentos Word de trabajo (no se publican)

@@ -51,10 +51,10 @@ La rúbrica pide aplicar **una** técnica no supervisada: PCA o clustering, y en
 | | |
 |---|---|
 | Dataset | *Default of Credit Card Clients*: clientes de un emisor de Taiwán, abril a septiembre de 2005 |
-| Archivo | `data/raw/UCI_Credit_Card.csv`: 30 000 filas y 25 columnas, todas numéricas (2.9 MB) |
+| Archivo | `data/raw/UCI_Credit_Card.csv`: 30 000 filas y 25 columnas, todas numéricas (2.9 MB). **No está en el repositorio: el notebook lo descarga solo** |
 | Fuente original | UCI Machine Learning Repository, licencia [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| Copia descargada | [Hugging Face `scikit-learn/credit-card-clients`](https://huggingface.co/datasets/scikit-learn/credit-card-clients), licencia CC0 1.0, descargada el 2026-11-08 |
-| SHA-256 | `a0f0ab49d6326671d6cd83be5c88dcf18007025fe9a53ecd699119c871176ca1` |
+| Copia descargada | [Hugging Face `scikit-learn/credit-card-clients`](https://huggingface.co/datasets/scikit-learn/credit-card-clients), licencia CC0 1.0, descargada el 2026-11-08. El notebook usa la versión fija [`f809522`](https://huggingface.co/datasets/scikit-learn/credit-card-clients/tree/f809522649eaf948ad40a11ed575c4bb4d4460c1) |
+| SHA-256 | `a0f0ab49d6326671d6cd83be5c88dcf18007025fe9a53ecd699119c871176ca1` (el notebook lo verifica tras descargar) |
 
 Cita: Yeh, I. C. (2009). *Default of Credit Card Clients* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C55S3H
 
@@ -62,7 +62,7 @@ Cita: Yeh, I. C. (2009). *Default of Credit Card Clients* [Dataset]. UCI Machine
 
 ```text
 ├── data/
-│   ├── raw/UCI_Credit_Card.csv          # dataset original, sin modificar
+│   ├── raw/UCI_Credit_Card.csv          # se descarga al ejecutar (dataset original, sin modificar)
 │   └── processed/                       # se genera al ejecutar (clientes con su segmento)
 ├── notebooks/
 │   └── avance1_segmentacion_clientes.ipynb
@@ -76,7 +76,7 @@ Cita: Yeh, I. C. (2009). *Default of Credit Card Clients* [Dataset]. UCI Machine
 
 ## Cómo ejecutarlo
 
-Requiere **Python 3.12 o superior**. Todas las rutas son relativas a la carpeta del proyecto.
+Requiere **Python 3.12 o superior** y conexión a internet la primera vez. **No hace falta descargar el dataset a mano:** el notebook lo baja de Hugging Face en `data/raw/` y comprueba que sea el mismo archivo con su SHA-256. Si ya está descargado, no lo vuelve a bajar. Todas las rutas son relativas a la carpeta del proyecto.
 
 ```bash
 git clone https://github.com/jdmejia92/MODELADO_Y_PRESENTACION_DE_DATOS.git
@@ -97,13 +97,13 @@ Para ejecutarlo sin abrir Jupyter:
 jupyter nbconvert --to notebook --execute --inplace notebooks/avance1_segmentacion_clientes.ipynb
 ```
 
-El notebook regenera las figuras, `reports/resultados.json`, `reports/perfil_segmentos.csv` y `data/processed/clientes_segmentados.csv`. Los resultados son reproducibles porque la semilla está fijada (`random_state=42`).
+El notebook descarga `data/raw/UCI_Credit_Card.csv` y regenera las figuras, `reports/resultados.json`, `reports/perfil_segmentos.csv` y `data/processed/clientes_segmentados.csv`. Los resultados son reproducibles porque la semilla está fijada (`random_state=42`).
 
 ## Metodología
 
 | Etapa | Qué se hizo | Funciones principales |
 |---|---|---|
-| Carga y estructura | Forma, tipos de dato y primer vistazo | `read_csv`, `shape`, `info`, `head`, `describe` |
+| Descarga y carga | Descarga desde Hugging Face con verificación SHA-256; forma, tipos de dato y primer vistazo | `requests.get`, `hashlib.sha256`, `read_csv`, `shape`, `info`, `head`, `describe` |
 | EDA univariado | Distribuciones, asimetría y variables categóricas | `hist`, `boxplot`, `skew`, `value_counts` |
 | EDA multivariado | Correlaciones, dispersión e impago por grupo | `corr`, `sns.heatmap`, `sns.scatterplot`, `groupby`, `qcut` |
 | Faltantes | Códigos fuera del diccionario convertidos en `NaN`; eliminación de faltantes y duplicados (1.45 % de las filas) | `isnull`, `where`, `duplicated`, `dropna` |
